@@ -2,21 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('step1') {
+        stage('SCM Checkout') {
             steps {
-                echo 'Hello World'
+               git branch: 'main', url: 'https://github.com/PradipRandive/pipelines.git'
             }
         }
-		stage('step2') {
+        stage('complile') {
             steps {
-                sleep 60
-            }
-        }
-		stage('step3') {
-            steps {
-                echo 'Hello Pune'
+              withMaven(globalMavenSettingsConfig: '', jdk: 'JAVA_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
+                  echo 'comilation completed'
+}
             }
         }
     }
 }
-
