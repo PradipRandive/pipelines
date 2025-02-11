@@ -10,7 +10,7 @@ pipeline {
         stage('complile') {
             steps {
               withMaven(globalMavenSettingsConfig: '', jdk: 'JAVA_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
-                  echo 'comilation completed'
+                  echo 'comilation complete"
               }
             }
         }
